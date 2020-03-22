@@ -15,7 +15,7 @@ public class VentanaLogin extends windowMaker{
         setTitle("Modulo de Facturacion - Login");
         setBackground(new colorMaker().obtainColor("transparenteEnfasisOscuro"));
         /**Añadido de componentes */
-        //add(new PanelLogin().getPanel());
+        add(new PanelLogin().getPanel());
 
         /**Ajuste de comportamiento */
         setLocationRelativeTo(null);

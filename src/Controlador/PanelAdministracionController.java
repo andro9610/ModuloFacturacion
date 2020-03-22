@@ -36,7 +36,8 @@ public class PanelAdministracionController implements ActionListener {
             case "gestionarUsuarios":
                 break;
             case "logOut":
-                System.out.println("Saliendo");
+                new LoginController().getVentana();
+                AdminController.vAdmin.dispose();
                 break;
             default:
                 System.out.println("Accion no soportada");

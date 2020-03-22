@@ -42,7 +42,8 @@ public class PanelVentasController implements ActionListener {
             case "gestionarClientes":
                 break;
             case "logOut":
-                System.out.println("Saliendo");
+                new LoginController().getVentana();
+                VentasController.vVentas.dispose();
                 break;
             default:
                 System.out.println("Accion no soportada");

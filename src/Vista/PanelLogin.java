@@ -159,7 +159,7 @@ public class PanelLogin {
 
     protected void addController() {
         LoginController buttonActionController  = new LoginController();
-        buttonActionController.setCampos(campoUsuario,campoContraseña);
+        buttonActionController.setCampos(campoUsuario,campoContraseña,panelInformativo);
 
         botonLogin.addActionListener(buttonActionController);
         botonCerrar.addActionListener(buttonActionController);

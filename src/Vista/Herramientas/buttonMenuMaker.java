@@ -50,18 +50,19 @@ public class buttonMenuMaker extends JButton {
                 /**Aspecto del boton con el mouse encima */
                 colorSeleccion = focusedColor[0];
                 setBorder(BorderFactory.createMatteBorder(0, 10, 0, 0, colorSeleccion));
+                setBackground(panelColor);
             }
 
             @Override
             public void mouseClicked(MouseEvent e) {
                 setBorder(BorderFactory.createMatteBorder(0, 10, 0, 0, colorSeleccion));
-                setBackground(colorSeleccion);
+                setBackground(panelColor);
             }
 
             @Override
             public void mousePressed(MouseEvent e) {
                 setBorder(BorderFactory.createMatteBorder(0, 10, 0, 0, colorSeleccion));
-                setBackground(colorSeleccion);
+                setBackground(panelColor);
             }
             
             @Override
@@ -69,6 +70,7 @@ public class buttonMenuMaker extends JButton {
                 /**Aspecto del boton cuando el mouse ya no esta encima */
                 colorSeleccion = panelColor;
                 setBorder(BorderFactory.createMatteBorder(0, 10, 0, 0, colorSeleccion));
+                setBackground(panelColor);
             }
             
         });
