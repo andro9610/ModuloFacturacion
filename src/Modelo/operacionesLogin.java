@@ -19,6 +19,7 @@ public class operacionesLogin {
         while (listaUsuarios.next()){
             tipoUsuario = listaUsuarios.getString(3);
         }
+        EnlaceBD.closeConnection();
         return tipoUsuario;
     }
 }
