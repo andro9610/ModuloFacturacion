@@ -13,6 +13,10 @@ public class VentanaVentas extends windowMaker{
         setBackground(new colorMaker().obtainColor("grisEnfasisClaro"));
         /**Añadido de componentes */
         add(new PanelVentas().getPanel());
+        //add(new PanelBuscarFactura().getPanel());
+        add(new PanelBuscarCotizacion().getPanel());
+        //add(new PanelNuevaFactura().getPanel());
+        //add(new PanelNuevaCotizacion().getPanel());
         /**Ajuste de comportamiento */
         setLocationRelativeTo(null);
         setVisible(true);

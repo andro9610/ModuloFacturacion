@@ -13,9 +13,9 @@ public class VentanaAdministracion extends windowMaker{
         setBackground(new colorMaker().obtainColor("grisEnfasisClaro"));
         /**Añadido de componentes */
         add(new PanelAdministracion().getPanel());
-        //add(new PanelGestionUsuarios().getPanel());
+        add(new PanelGestionUsuarios().getPanel());
         //add(new PanelGestionProductos().getPanel());
-        add(new PanelGestionClientes().getPanel());
+        //add(new PanelGestionClientes().getPanel());
         /**Ajuste de comportamiento */
         setLocationRelativeTo(null);
         setVisible(true);

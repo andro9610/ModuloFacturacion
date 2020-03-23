@@ -1,0 +1,133 @@
+USE dbfacturacion;
+
+CREATE TABLE USUARIOS (
+	NOMBRE VARCHAR(20) PRIMARY KEY NOT NULL,
+    CLAVE VARCHAR(20) NOT NULL,
+    TIPO VARCHAR(15) NOT NULL, -- Puede ser vendedor o administrador
+    ESTADO VARCHAR(15) NOT NULL -- Puede ser activo o suspendido
+);
+
+INSERT INTO USUARIOS VALUES
+	(
+		'vendedor',
+		'clavevendedor',
+		'VENDEDOR',
+		'ACTIVO'
+	),
+    (
+		'administrador',
+        'claveadministrador',
+        'ADMINISTRADOR',
+        'ACTIVO'
+    );
+    
+    CREATE TABLE PRODUCTOS (
+		ID VARCHAR(20) PRIMARY KEY NOT NULL,
+        NOMBRE VARCHAR(50) NOT NULL,
+        EXISTENCIAS VARCHAR(10) NOT NULL,
+        MARCA VARCHAR(50) NOT NULL,
+        TALLA VARCHAR(5) NOT NULL,
+        COLOR VARCHAR(45) NOT NULL,
+        COSTO VARCHAR (10) NOT NULL,
+        IVA VARCHAR (5) NOT NULL,
+        OFERTA VARCHAR (5) NOT NULL        
+    );
+    
+    INSERT INTO PRODUCTOS VALUES
+    (
+		'A212',
+		'CAMISA DEPORTIVA',
+		'19',
+		'ADIDDAS',
+		'M',
+		'VERDE',
+		'50000',
+		'0',
+		'NO'
+    ),
+    (
+        'B415',
+		'PANTALON DRILL',
+		'35',
+		'ARTURO CALLE',
+		'L',
+		'NEGRO',
+		'65500',
+		'0',
+		'NO'
+    );
+    
+CREATE TABLE CLIENTES (
+	NUMERODOCUMENTO VARCHAR(20) PRIMARY KEY NOT NULL,
+    TIPODOCUMENTO VARCHAR(50) NOT NULL,
+    NOMBRE VARCHAR (50) NOT NULL,
+    APELLIDO VARCHAR (50) NOT NULL,
+    SEXO VARCHAR (9) NOT NULL,
+    EDAD VARCHAR (3) NOT NULL    
+);
+
+INSERT INTO CLIENTES VALUES 
+	(
+		'93153122',
+        'CEDULA DE CIUDADANIA',
+        'LUIS LEONARDO',
+        'TOVAR LOAIZA',
+        'MASCULINO',
+        '43'
+    ),
+	(
+		'52186639',
+        'CEDULA DE CIUDADANIA',
+        'GLORIA ESPERANZA',
+        'OCHOA PEREZ',
+        'FEMENINO',
+        '40'
+    );
+    
+CREATE TABLE FACTURA (
+	IDCABECERA VARCHAR(20) PRIMARY KEY NOT NULL,
+    FECHA VARCHAR(50) NOT NULL,
+    SUBTOTAL VARCHAR (50) NOT NULL,
+    ENVIO VARCHAR (50) NOT NULL,
+    TOTAL VARCHAR (50) NOT NULL
+);
+
+INSERT INTO FACTURA VALUES 
+(
+	'F001',
+    '05/02/2020 13:15',
+    '270000',
+    '35000',
+    '305000'
+),
+(
+	'F002',
+    '27/02/2020 13:17',
+    '118000',
+    '13500',
+    '131500'
+);
+
+CREATE TABLE COTIZACION (
+	IDCABECERA VARCHAR(20) PRIMARY KEY NOT NULL,
+    FECHA VARCHAR(50) NOT NULL,
+    SUBTOTAL VARCHAR (50) NOT NULL,
+    ENVIO VARCHAR (50) NOT NULL,
+    TOTAL VARCHAR (50) NOT NULL
+);
+
+INSERT INTO COTIZACION VALUES(
+	'C001',
+    '15/01/2020 17:15',
+    '280000',
+    '35000',
+    '315000'
+),
+(
+	'C002',
+    '22/02/2020 09:30',
+    '218000',
+    '13500',
+    '231500'
+);
+    
