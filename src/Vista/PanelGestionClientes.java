@@ -11,7 +11,7 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
-import Controlador.GestionUsuariosController;
+import Controlador.GestionClientesController;
 import Vista.Herramientas.buttonMaker;
 import Vista.Herramientas.colorMaker;
 import Vista.Herramientas.fontMaker;
@@ -20,14 +20,14 @@ import Vista.Herramientas.labelMaker;
 import Vista.Herramientas.panelMaker;
 import Vista.Herramientas.tableMaker;
 
-public class PanelGestionUsuarios {
+public class PanelGestionClientes {
 
-    panelMaker panelGestionUsuarios;
+    panelMaker panelGestionClientes;
 
     /** Elementos del formulario */
     inputMaker campoBusqueda;
     tableMaker creadorTablas;
-    buttonMaker botonAgregarUsuario;
+    buttonMaker botonAgregarCliente;
 
     /** Extras funcionales */
     DefaultTableModel dm;
@@ -39,7 +39,7 @@ public class PanelGestionUsuarios {
         int altoPanel = alto;
         int anchoPanel = ancho;
 
-        panelGestionUsuarios = new panelMaker(
+        panelGestionClientes = new panelMaker(
                 (int) (anchoPanel * 0.1620), 0,
                 (int) (anchoPanel * 0.8382), altoPanel,
                 new colorMaker().obtainColor("grisEnfasisClaro"));
@@ -56,10 +56,13 @@ public class PanelGestionUsuarios {
 
         /** Creacion de la tabla */
         String[] columnas = {
-            "Nombre de usuario",
-            "Contraseña",
-            "Tipo de usuario",
-            "Estado" };
+            "Numero de documento",
+            "Tipo",
+            "Nombres",
+            "Apellidos",
+            "Genero",
+            "Edad"
+        };
 
         creadorTablas = new tableMaker();
         JScrollPane tablaResultados = creadorTablas.getTabla(
@@ -68,28 +71,28 @@ public class PanelGestionUsuarios {
             (int) (anchoPanel * 0.5267), (int) (altoPanel * 0.3822)
         );
         /** Creacion de botones */
-        Color[] agregarUsuarioNormal = {
+        Color[] agregarClienteNormal = {
             new colorMaker().obtainColor("verdeEnfasisOscuro"),
             new colorMaker().obtainColor("blanco")
         };
 
-        Color[] agregarUsuarioFocused = {
+        Color[] agregarClienteFocused = {
             new colorMaker().obtainColor("verdeEnfasisMedio"),
             new colorMaker().obtainColor("blanco")
         };
 
-        botonAgregarUsuario = new buttonMaker(
-            "Agregar Usuario",
+        botonAgregarCliente = new buttonMaker(
+            "Agregar Cliente",
             (int) (anchoPanel * 0.7017), (int) (altoPanel * 0.9011),
             (int) (anchoPanel * 0.10714), (int) (altoPanel * 0.0355),
-            agregarUsuarioNormal, agregarUsuarioFocused,
+            agregarClienteNormal, agregarClienteFocused,
             new fontMaker().obtainFont("fuenteBotones"),
             new fontMaker().obtainFont("fuenteBotones"));
 
         /** Agregado de los elementos al panel */
-        panelGestionUsuarios.add(
+        panelGestionClientes.add(
             new labelMaker(
-                "GESTION DE USUARIOS",
+                "GESTION DE CLIENTES",
                 (int) (anchoPanel * 0.02767),(int) (altoPanel * 0.0355),
                 (int) (anchoPanel * 0.275), (int) (altoPanel * 0.04444),
                 new colorMaker().obtainColor("negro"),
@@ -97,7 +100,7 @@ public class PanelGestionUsuarios {
             )
         );
 
-        panelGestionUsuarios.add(
+        panelGestionClientes.add(
             new labelMaker(
                 "Ingresa un criterio de busqueda",
                 (int) (anchoPanel * 0.02767), (int) (altoPanel * 0.0755),
@@ -107,8 +110,8 @@ public class PanelGestionUsuarios {
             )
         );
 
-        panelGestionUsuarios.add(campoBusqueda);
-        panelGestionUsuarios.add(
+        panelGestionClientes.add(campoBusqueda);
+        panelGestionClientes.add(
             new labelMaker(
                 "RESULTADOS DE BUSQUEDA",
                 (int) (anchoPanel * 0.02767), (int) (altoPanel * 0.1855),
@@ -118,25 +121,25 @@ public class PanelGestionUsuarios {
             )
         );
 
-        panelGestionUsuarios.add(tablaResultados);
-        panelGestionUsuarios.add(botonAgregarUsuario);
+        panelGestionClientes.add(tablaResultados);
+        panelGestionClientes.add(botonAgregarCliente);
         addController(creadorTablas);
-        panelGestionUsuarios.updateUI();
+        panelGestionClientes.updateUI();
     }
 
     public panelMaker getPanel() {
-        if (panelGestionUsuarios == null) {
+        if (panelGestionClientes == null) {
             crear();
         }
-        return panelGestionUsuarios;
+        return panelGestionClientes;
     }
 
     protected void addController(tableMaker creadorTablas) {
-        GestionUsuariosController buttonAction =  new GestionUsuariosController();
+        GestionClientesController buttonAction =  new GestionClientesController();
         buttonAction.setCampos(creadorTablas);
-        botonAgregarUsuario.addActionListener(buttonAction);
+        botonAgregarCliente.addActionListener(buttonAction);
 
-        botonAgregarUsuario.setActionCommand("agregarUsuario");
+        botonAgregarCliente.setActionCommand("agregarCliente");
  
         campoBusqueda.addKeyListener(new KeyListener() {
 

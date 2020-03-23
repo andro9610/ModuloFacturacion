@@ -95,7 +95,7 @@ public class PanelGestionProductos {
         /** Agregado de los elementos al panel */
         panelGesionProductos.add(
             new labelMaker(
-                "BUSQUEDA DE PRODUCTOS",
+                "GESTION DE PRODUCTOS",
                 (int) (anchoPanel * 0.02767),(int) (altoPanel * 0.0355),
                 (int) (anchoPanel * 0.275), (int) (altoPanel * 0.04444),
                 new colorMaker().obtainColor("negro"),

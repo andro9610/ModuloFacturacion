@@ -14,7 +14,8 @@ public class VentanaAdministracion extends windowMaker{
         /**Añadido de componentes */
         add(new PanelAdministracion().getPanel());
         //add(new PanelGestionUsuarios().getPanel());
-        add(new PanelGestionProductos().getPanel());
+        //add(new PanelGestionProductos().getPanel());
+        add(new PanelGestionClientes().getPanel());
         /**Ajuste de comportamiento */
         setLocationRelativeTo(null);
         setVisible(true);
